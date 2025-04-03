@@ -76,9 +76,9 @@ class Program
          *********************************************************************/
         
         // Define the variables to hold the numbers we need to add
-        int number1 = 0;
-        int number2 = 0;
-        int number3 = 0; 
+        int number1 = 0; //Since we will be doing math it needs to be numeric
+        int number2 = 0; //Since we will be doing math it needs to be numeric
+        int number3 = 0; //Since we will be doing math it needs to be numeric
         
         // Define a variable to hold the sum of the numbers
         int sum = 0; 
@@ -89,14 +89,26 @@ class Program
         //     which represents the keyboard and screen
         // Console.ReadLine() returns a string - cannot store in an int
         Console.WriteLine("Please enter a number:  ");  // Asking for the number
-        string aLine;                 // String to hold the line of input from the keyboard
-        aLine = Console.ReadLine();                   // Get a line from the keyboard
+        string theResponse;      // String to hold the line of input from the keyboard
+        theResponse = Console.ReadLine();                   // Get a line from the keyboard
         // We need an int value to store our numbers
         // Console.ReadLine() only returns a string
         // So we need to convert the string from Console.ReadLine() to an int
         // int.Parse(string) will convert a string to an int
-        number1 = int.Parse(aLine);
+        number1 = int.Parse(theResponse);
         
+        Console.WriteLine("Please enter a number:  ");
+        theResponse = Console.ReadLine();
+        number2 = int.Parse(theResponse);
+        
+        Console.WriteLine("Please enter a number:  ");
+        theResponse = Console.ReadLine();
+        number3 = int.Parse(theResponse);
+        
+        //Add the numbers together for the sum
+        
+        sum = number1 + number2 + number3;
+        Console.WriteLine("The sum is: " + sum);
         
         Console.WriteLine("--- Ending program ---");
     }

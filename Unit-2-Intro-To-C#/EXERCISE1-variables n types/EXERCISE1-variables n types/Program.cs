@@ -53,7 +53,7 @@ class Program
 
                 //********EXERCICE 1.4 ***********
                 
-          /*      
+            
                 
        double numeroUno = 0;  //make a place to store the numbers
        double numeroDos = 0;

@@ -68,16 +68,16 @@ class Program
     {
         // If num1 is equal to num2, return true
         //  if (num1 == num2) return true; // this works, but non-standard (non-professional)
-        if (num1 == num2)
-        {
-            // Industry standards expect the true processing to be inside { } 
-            return true;
-        }
-        else  // If num1 is not equal to num2, return false.
-        { // Industry standards expect the false processing to be inside { } 
-            return false; 
-        }
-        // return num1 == num2 // works too
+        // if (num1 == num2)
+        // {
+        //     // Industry standards expect the true processing to be inside { } 
+        //     return true;
+        // }
+        // else  // If num1 is not equal to num2, return false.
+        // { // Industry standards expect the false processing to be inside { } 
+        //     return false; 
+        // }
+        return num1 == num2; // works too
     } // End of IsTheSame()
     
     // Create a static method named Subtract() that takes in 2 parameters, all doubles: num1, num2.
@@ -100,7 +100,15 @@ class Program
     */
     static string FindBuildingType(int num1)
     {
-        if (num1 <= 3)
+        switch (num1) //check the value in num1
+        {
+            case int house when num1 <= 3:
+            {
+                return "this is a house";
+            }
+        }
+        
+        /*if (num1 <= 3)
         {
             return "This is a house";
         }
@@ -121,7 +129,7 @@ class Program
         // so it wants a return in case we haven't
         //
         // to avoid this, remove the last else if
-        //return "I don't know";
+        //return "I don't know";*/
     }
     
 } // End of class Program

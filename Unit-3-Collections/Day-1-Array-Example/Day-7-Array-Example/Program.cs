@@ -24,12 +24,17 @@ class Program
         static void Main(string[] args)
         {
             Console.WriteLine("\nWelcome to my app!");       // Verify the app started
-
+            
+            
+            //const marks the variable as a constat
+            //a constant cannot be changed once it has a value
+            //constant names should be all upper-case with under-scores to seperate the parts of a name
             // Define a constant to use to reference the size of the array
             const int ARRAY_SIZE = 5;  // use this every where you want to code the size of the array
+            
 
             // Define an array to hold up to 10 numbers entered by the user
-            double[] theNumbers = new double[ARRAY_SIZE];  //define an array of 10 doubles
+            double[] theNumbers = new double[ARRAY_SIZE];  //define an array of ARRAY_SIZE doubles
 
             // Define a variable to hold the user input
             string whatUserTyped = "";
@@ -40,12 +45,17 @@ class Program
             // Define a variable to hold the number of variables entered by the user
             int numberEntered = 0;
 
+            //When you need to process an array from start to end
+            //Use a for-loop
+            //for(int i=0; i<size-of-array; i++) - use i as the index into the array inside the loop
+            
             // Set up a loop to get ARRAY_SIZE numbers, one at a time or responses indicating the user is done
-            for (int i = 0; i < ARRAY_SIZE; i++)
+            for (int i = 0; i < ARRAY_SIZE; i++) //instead of ARRAY_SIZE theNumbers.Length is OK too
             {
-                if (!moreInput()) // if they don't have any more input...
+                // if (moreInput !=true) // alternate coding style
+                if (!moreInput()) // if they don't have any more input... moreInput() is a method, will return true or false
                 {
-                    break;  // exit the for-loop
+                    break;  // exit the for-loop before its gone through all iterations
                 }
                 // At this point we know the user has a number to enter
 
@@ -69,6 +79,22 @@ class Program
             // Only process the numbers that were entered. i.e. NOT arrayname.length
             for (int i = 0; i < numberEntered; i++)
             {
+                
+                //the ternary operator: condition ? value-if-true : value-if-false
+                //
+                //
+                // (is array element evenly divisible by 2 ? yes-Even : no-Odd)
+                // theNumbers[i] % 2 == 0 ? "Even" : "Odd"
+                //
+                // % - modulus operator - returns the remainder after an integer divide
+                // Use % when you want to know if something is evenly divisible by something else
+                //
+                //      6 % 2 - return 0
+                //      7 % 2 - return 1
+                //      101 % 33 - return 2 (101/33= 3 with remainder of 2)
+                //
+                // If you divide a number by 2 and remainder is 0, it's Even
+                //                                 remainder is 1, it's Odd
                 Console.WriteLine("Element #: " + i + " is: " + theNumbers[i] 
                                 + " it is " + (theNumbers[i] % 2 == 0 ? "Even" : "Odd"));
 
@@ -89,38 +115,54 @@ class Program
          ******************************************************************/
 
         // return a boolean value to indicate if teh user has more input
+        // return true if user entered "Y"
+        // return false if user entered "N"
         static bool moreInput()
         {
-            bool   isThereInput  = false;  // Hold teh return value 
+            bool   isThereInput  = false;  // Hold the return value
 
             string whatUserTyped = "";     // Hold what the user enters
 
             bool   getInput      = true;   // Control the user interaction loop
 
+            
+            //do-while - loop while the condition is true
+            // the condition is on the 'while' part of the loop at the bottom of loop
+            // You will always loop atleast once with a do-while loop
+            // (the loop condition is not checked untill the end of the loop)
+            // (unlike the for-loop or while-loop where the condition is checked before you loop
+            //
+            // we use a do-while loop because we need to ask the user atleast once if they have any input
+            
             do
             {
                 // Ask the user if they have any numbers to enter (Y/N)
                 Console.WriteLine("Do you have any numbers to enter (Y/N)?");
                 whatUserTyped = Console.ReadLine();
 
+                
+                // Convert the user input to all uppercase - so we don't have to worry about case
                 whatUserTyped = whatUserTyped.ToUpper();
 
+                // Extract the first character from the user input - Substring(start-index, #-of-characters)
                 string firstChar = whatUserTyped.Substring(0, 1);
 
                 if (firstChar == "Y")
                 {
-                    getInput = false;
-                    isThereInput = true;
+                    getInput = false;     // Done getting input - set loop control variable to false - end loop
+                    isThereInput = true;  //Indicate user has more input - set the more input indicator to true
                 }
                 else
                 {
                     if (firstChar == "N")
                     {
-                        getInput = false;
-                        isThereInput = false;
+                        getInput = false;  // Done getting input - end loop
+                        isThereInput = false;  //User has no more input
                     }
                 }
-            } while (getInput); // Loop while we get input
+            } while (getInput); // Loop while we get input (while getInput == true)
+            // while(getInput == true) // alternate way of coding
+            // it's not necessary when you have bool variable since the variable can only be true or false
 
             return isThereInput;
         }
@@ -148,6 +190,21 @@ class Program
 
                 // Get the input from the user
                 string userInput = Console.ReadLine();
+                
+                //Some statements may cause an Exception during processing
+                // An exception is a error that occurs when the program runs (aka Runtime Exception)
+                // When an excpeition occurs a crytic (to normal people) error message is displayed and the program stops
+                //
+                // You can handle an exeption if it occurs in the program and let the program continue
+                // with a try/catch blocks
+                //
+                // You put code that might cause an exception in a try block try {}
+                // followed by one or more catch blocks for the exception
+                // catch (exception-to-handle name-for-exception-object)
+                //
+                // The exception object contains information about the exception you might use
+                
+                
 
                 try // We want to handle an Exception that might occur in this block of code
                 {

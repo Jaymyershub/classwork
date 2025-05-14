@@ -1,6 +1,5 @@
 ﻿namespace Day_2_For_Each_Example;
 
-offense 
 
 class Program
 {
@@ -21,11 +20,13 @@ class Program
         for (int i = 0; i < splitSentence.Length; i++)
         {
             //Note: to add 1 and i and use in the string we have to put it in ()
+            // .WriteLine() treats everything you give it as a string
             //      + for a string means concatenate
             //      + for a numeric means add
             //      i+1 in the output for WriteLine,
-            //          it thinks I 
-            Console.WriteLine("Word #: "+ (i+1) + (i + 1) + " is: " + splitSentence[i]);
+            //          it thinks I want to take the value of i and stick a 1 after it
+            //          (i+1) - () indicate do this first - add 1 to i and then use it in WriteLine output
+            Console.WriteLine("Word #: " + (i+1) + " is: " + splitSentence[i]);
         }
         Console.WriteLine("----foreach example result follows----");
         //for-each loop can also process arrays and Lists
@@ -36,13 +37,15 @@ class Program
          //
          //for-loop vs for-each
          //
-         //Both can process an array or List from beginning to end
+         //Both can process an array or list from beginning to end
          //for-loop can start and end at any element by setting int i= and changing the condition
-         //for-each ALWAYS process
+         // for-each always processes from the beginning to end
+         // for-loop you know which element you are processing by using the value in i
+         // for-each loop you do not know which element youre processing
 
         foreach (string aWord in splitSentence)
         {
-            
+            Console.WriteLine(aWord);
         }
     }
 }

@@ -69,6 +69,13 @@ internal class Program
             //              from the List that made the condition true
             //
             // Note use of var type to hold the result of .Where()
+            
+            //put all the entries in the starFleetPersonel that match the condition
+            //into the var called matching entries
+            // .Where() will add the current entry into matchingntries if condition is true
+            // .Where() keeps an internal list of elements that match the condition and 
+            // assign it to the variable when done
+            
 
             var matchingEntries =
                 starFleetPersonnel.Where(anEntry => anEntry.ToLower().Contains(searchString.ToLower()));
@@ -219,7 +226,7 @@ internal class Program
 
         bool getInput = true;   // Control the user interaction loop
 
-        do
+        do // variable controlled loop -- bool varaible being set to 
         {
             // Ask the user if they have any numbers to enter (Y/N)
             Console.WriteLine("\nDo you have any values to enter (Y/N)?");
@@ -231,7 +238,7 @@ internal class Program
 
             if (firstChar == "Y")
             {
-                getInput = false;
+                getInput = false; //set loop control variable to end loop
                 isThereInput = true;
             }
             else
@@ -242,7 +249,7 @@ internal class Program
                     isThereInput = false;
                 }
             }
-        } while (getInput); // Loop while we get input
+        } while (getInput); // Loop while we get input (loop based on loop control variable)
 
         return isThereInput;
 

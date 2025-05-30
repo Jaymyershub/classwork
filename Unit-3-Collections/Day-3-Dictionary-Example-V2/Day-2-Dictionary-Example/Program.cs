@@ -19,7 +19,9 @@ namespace Day_2_Dictionary_Example
             //         type    type    name      = new Dictionary<key-type, value>();
             Dictionary<string, double> gradeBook = new Dictionary<string, double>();
             
-            // Lets add 3 students - loop 3 times for-loop
+            // Lets add students and their grades until the user indicates they are done
+            // loop until the user satisfies the condition instead of a specific number of times
+            // replace the for-loop
             for (int i = 0; i < 3; i++)
             {
                 // Ask the user for the student name and grade
